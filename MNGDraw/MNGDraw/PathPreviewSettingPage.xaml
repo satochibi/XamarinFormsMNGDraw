@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MNGDraw.PathPreviewSettingPage"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
+             NavigationPage.HasNavigationBar="False"
+             Appearing="PathPreviewSettingPage_Appearing">
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0, 20, 0, 0"/>
+            <On Platform="macOS" Value="0"/>
+            <On Platform="Android" Value="0"/>
+            <On Platform="WinPhone" Value="0"/>
+        </OnPlatform>
+    </ContentPage.Padding>
+
+
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+
+        <Picker x:Name="pathPreviewPicker"
+                Title="pathPreview"
+                Grid.Row="0"
+                SelectedIndexChanged="PathPreviewPickerChanged">
+            <Picker.Items>
+                <x:String>Open</x:String>
+                <x:String>LinearClose</x:String>
+                <x:String>Close</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <Grid Grid.Row="1">
+            <skia:SKCanvasView x:Name="pathPreviewCanvasView" PaintSurface="OnPaintCanvas" />
+        </Grid>
+
+        <Button Grid.Row="2" Text="完了" BackgroundColor="Blue" TextColor="White" Clicked="ReturnButtonClicked" />
+    </Grid>
+</ContentPage>

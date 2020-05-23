@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MNGDraw.BezierHandleSettingPage"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
+             NavigationPage.HasNavigationBar="False"
+             Appearing="BezierHandleSettingPage_Appearing">
+    
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0, 20, 0, 0"/>
+            <On Platform="macOS" Value="0"/>
+            <On Platform="Android" Value="0"/>
+            <On Platform="WinPhone" Value="0"/>
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Grid.Row="0" Orientation="Horizontal">
+            <Slider HorizontalOptions="FillAndExpand" x:Name="bezierHandleThresholdSlider" Minimum="0" Maximum = "{Binding Path=AspectRatioMax}" ValueChanged="BezierHandleThresholdSliderChanged" />
+            <Label BindingContext="{x:Reference bezierHandleThresholdSlider}" Text="{Binding Value, StringFormat='{0:F2}'}" />
+        </StackLayout>
+
+        <Grid Grid.Row="1">
+            <skia:SKCanvasView x:Name="bezierHandlePreviewCanvasView" PaintSurface="OnPaintCanvas" EnableTouchEvents="True" Touch="OnTouch" />
+        </Grid>
+
+        <Button Grid.Row="2" Text="完了" BackgroundColor="Blue" TextColor="White" Clicked="ReturnButtonClicked" />
+    </Grid>
+    
+</ContentPage>

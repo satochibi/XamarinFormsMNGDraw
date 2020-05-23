@@ -4,13 +4,142 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="MNGDraw.MainPage">
+             x:Class="MNGDraw.MainPage"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
+             NavigationPage.HasNavigationBar="False"
+             Appearing="MainPage_Appearing"
+             Title="MNGDraw">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0, 20, 0, 0"/>
+            <On Platform="macOS" Value="0"/>
+            <On Platform="Android" Value="0"/>
+            <On Platform="WinPhone" Value="0"/>
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Picker x:Name="strokeColorPicker"
+                Title="StrokeColor"
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                SelectedIndexChanged="StrokeColorPickerChanged">
+            <Picker.Items>
+                <x:String>None</x:String>
+                <x:String>Black</x:String>
+                <x:String>White</x:String>
+                <x:String>Red</x:String>
+                <x:String>Yellow</x:String>
+                <x:String>Green</x:String>
+                <x:String>Blue</x:String>
+            </Picker.Items>
+
+            <Picker.SelectedIndex>
+                1
+            </Picker.SelectedIndex>
+        </Picker>
+
+
+        <Stepper x:Name="strokeSizeStepper" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Minimum="1" Maximum="50" Value="5" ValueChanged="StrokeSizeStepperChanged" />
+        <Label Grid.Row="0" Grid.Column="4" BindingContext="{x:Reference strokeSizeStepper}" Text="{Binding Value, StringFormat='{0:F0}px'}" />
+
+
+        <Picker x:Name="fillColorPicker"
+                Title="FillColor"
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                SelectedIndexChanged="FillColorPickerChanged">
+            <Picker.Items>
+                <x:String>None</x:String>
+                <x:String>Black</x:String>
+                <x:String>White</x:String>
+                <x:String>Red</x:String>
+                <x:String>Yellow</x:String>
+                <x:String>Green</x:String>
+                <x:String>Blue</x:String>
+            </Picker.Items>
+
+            <Picker.SelectedIndex>
+                6
+            </Picker.SelectedIndex>
+        </Picker>
+
+        <Picker x:Name="fillPatternPicker"
+                Title="FillPattern"
+                Grid.Row="1"
+                Grid.Column="2"
+                Grid.ColumnSpan="2"
+                SelectedIndexChanged="FillPatternPickerChanged">
+            <Picker.Items>
+                <x:String>Normal</x:String>
+                <x:String>Rough3x3</x:String>
+                <x:String>Rough2x2</x:String>
+                <x:String>Beads4x4</x:String>
+                <x:String>StripeX</x:String>
+                <x:String>StripeY</x:String>
+                <x:String>Checkered</x:String>
+                <x:String>Dense2x2</x:String>
+                <x:String>Dense3x3</x:String>
+                <x:String>LeftHatching</x:String>
+                <x:String>RightHatching</x:String>
+            </Picker.Items>
+
+            <Picker.SelectedIndex>
+                6
+            </Picker.SelectedIndex>
+        </Picker>
+
+        <Switch Grid.Row="1" Grid.Column="4" x:Name="screentoneBlendModeSwitch" IsToggled="True" Toggled="ScreentoneBlendModeSwitchToggled" />
+
+        <Button Grid.Row="2" Grid.Column="0" x:Name="inProgressPathUndoButton" Clicked="InProgressPathUndoButtonClicked" BackgroundColor="Blue" TextColor="White" Text="PathUndo" />
+        <Button Grid.Row="2" Grid.Column="1" x:Name="openPathButton" Clicked="OpenPathButtonClicked" BackgroundColor="Blue" TextColor="White" Text="ConfirmOpen" />
+        <Button Grid.Row="2" Grid.Column="2" x:Name="closePathButton" Clicked="ClosePathButtonClicked" BackgroundColor="Blue" TextColor="White" Text="ConfirmClose" />
+        <Button Grid.Row="2" Grid.Column="3" x:Name="undoButton" Clicked="UndoButtonClicked" BackgroundColor="Blue" TextColor="White" Text="Undo" />
+        <Button Grid.Row="2" Grid.Column="4" x:Name="menuButton" Clicked="MenuButtonClicked" BackgroundColor="Gray" TextColor="Black" Text="Menu" />
+
+
+
+        <Grid Grid.Row="3" Grid.ColumnSpan="5">
+            <skia:SKCanvasView x:Name="canvasView" PaintSurface="OnPaintCanvas" EnableTouchEvents="True" Touch="OnTouch"/>
+        </Grid>
+
+        <Button Grid.Row="4" Grid.Column="0" x:Name="pagePreviousButton" Text="←" Clicked="PagePreviousButtonClicked"/>
+        <Button Grid.Row="4" Grid.Column="1" Text="再生" Clicked="PagePlayButtonClicked"/>
+        <Button Grid.Row="4" Grid.Column="2" x:Name="pageNextButton" Text="→" Clicked="PageNextButtonClicked"/>
+        <Label Grid.Row="4" Grid.Column="3" x:Name="currentPageLabel" Text="Page: 1/1"/>
+        <Picker Grid.Row="4" Grid.Column="4" x:Name="layerPicker" Title="Layer" SelectedIndexChanged="LayerPickerChanged">
+            <Picker.Items>
+                <x:String>A</x:String>
+                <x:String>B</x:String>
+                <x:String>C</x:String>
+            </Picker.Items>
+
+            <Picker.SelectedIndex>
+                0
+            </Picker.SelectedIndex>
+        </Picker>
+
+    </Grid>
 
 </ContentPage>
