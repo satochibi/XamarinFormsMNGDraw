@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MNGDraw.iOS", "MNGDraw\MNGD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MNGDraw", "MNGDraw\MNGDraw\MNGDraw.csproj", "{A143F7D5-EB01-45B4-92EE-D49F6D1A08EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MNGDraw.MacOS", "MNGDraw.MacOS\MNGDraw.MacOS.csproj", "{DD5414BE-411F-4319-B2F2-5E816E5190C8}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -173,30 +171,6 @@ Global
 		{A143F7D5-EB01-45B4-92EE-D49F6D1A08EB}.Release|x86.ActiveCfg = Release|Any CPU
 		{A143F7D5-EB01-45B4-92EE-D49F6D1A08EB}.Release|x86.Build.0 = Release|Any CPU
 		{A143F7D5-EB01-45B4-92EE-D49F6D1A08EB}.Release|x86.Deploy.0 = Release|Any CPU
-		{DD5414BE-411F-4319-B2F2-5E816E5190C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DD5414BE-411F-4319-B2F2-5E816E5190C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DD5414BE-411F-4319-B2F2-5E816E5190C8}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{DD5414BE-411F-4319-B2F2-5E816E5190C8}.Debug|ARM.Build.0 = Debug|Any CPU
-		{DD5414BE-411F-4319-B2F2-5E816E5190C8}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{DD5414BE-411F-4319-B2F2-5E816E5190C8}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{DD5414BE-411F-4319-B2F2-5E816E5190C8}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{DD5414BE-411F-4319-B2F2-5E816E5190C8}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{DD5414BE-411F-4319-B2F2-5E816E5190C8}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{DD5414BE-411F-4319-B2F2-5E816E5190C8}.Debug|x64.Build.0 = Debug|Any CPU
-		{DD5414BE-411F-4319-B2F2-5E816E5190C8}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{DD5414BE-411F-4319-B2F2-5E816E5190C8}.Debug|x86.Build.0 = Debug|Any CPU
-		{DD5414BE-411F-4319-B2F2-5E816E5190C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DD5414BE-411F-4319-B2F2-5E816E5190C8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DD5414BE-411F-4319-B2F2-5E816E5190C8}.Release|ARM.ActiveCfg = Release|Any CPU
-		{DD5414BE-411F-4319-B2F2-5E816E5190C8}.Release|ARM.Build.0 = Release|Any CPU
-		{DD5414BE-411F-4319-B2F2-5E816E5190C8}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{DD5414BE-411F-4319-B2F2-5E816E5190C8}.Release|iPhone.Build.0 = Release|Any CPU
-		{DD5414BE-411F-4319-B2F2-5E816E5190C8}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{DD5414BE-411F-4319-B2F2-5E816E5190C8}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
-		{DD5414BE-411F-4319-B2F2-5E816E5190C8}.Release|x64.ActiveCfg = Release|Any CPU
-		{DD5414BE-411F-4319-B2F2-5E816E5190C8}.Release|x64.Build.0 = Release|Any CPU
-		{DD5414BE-411F-4319-B2F2-5E816E5190C8}.Release|x86.ActiveCfg = Release|Any CPU
-		{DD5414BE-411F-4319-B2F2-5E816E5190C8}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

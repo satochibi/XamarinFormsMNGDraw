@@ -16,6 +16,7 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -92,7 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MNGDraw\MNGDraw.csproj">
-      <Project>{A143F7D5-EB01-45B4-92EE-D49F6D1A08EB}</Project>
+      <Project>{284DD9B5-004E-4C30-B6C5-60AAF81EF9AC}</Project>
       <Name>MNGDraw</Name>
     </ProjectReference>
   </ItemGroup>
