@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MNGDraw.CommandPage"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
+             NavigationPage.HasNavigationBar="False">
+    
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0, 20, 0, 0"/>
+            <On Platform="macOS" Value="0"/>
+            <On Platform="Android" Value="0"/>
+            <On Platform="WinPhone" Value="0"/>
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+
+        <StackLayout Grid.Row="0" Orientation="Horizontal">
+            <Entry x:Name="CommandEntry" Placeholder="Please Input Commnands" HorizontalOptions="FillAndExpand"/>
+            <Button x:Name="SubmitButton" Text="Enter" HorizontalOptions="End" Clicked="SubmitButtonClicked"/>
+        </StackLayout>
+
+
+        <Label x:Name="StdOut" Grid.Row="1" Text="aaa"/>
+
+
+        <Grid Grid.Row="2">
+            <!--
+            <skia:SKCanvasView x:Name="canvasView" PaintSurface="OnPaintCanvas" EnableTouchEvents="True" Touch="OnTouch"/>
+            -->
+        </Grid>
+
+
+
+    </Grid>
+</ContentPage>
