@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>MNGDraw</title>
+    <!--
+    <link rel="shortcut icon" href="./img/favicon.ico">
+    -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- Font Awesome 5 -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" />
+
+    <style>
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            padding-top: 50px;
+            background-image: url(./img/hougan.gif);
+            background-repeat: repeat;
+        }
+
+        nav.navbar {
+            background-color: #F07238;
+        }
+
+        div.wrapper {
+            background-color: white;
+            border-radius: 0.3rem;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            margin-top: 2.5rem;
+        }
+
+        h2 {
+            background: #F07238;
+            font-size: 130%;
+            text-indent: 15px;
+            padding: 9px 0;
+            border-radius: 10px;
+            margin: 0 0 10px;
+            color: #fff;
+        }
+
+        h3 {
+            font-size: 130%;
+        }
+
+        h4 {
+            font-size: 100%;
+            font-weight: bold;
+        }
+
+        .tab-content {
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        .nav-tabs {
+            margin-bottom: 0;
+        }
+
+        .youtube {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+        }
+
+        .youtube iframe {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        .download-badge img {
+            width: 100%;
+            max-width: 300px;
+        }
+
+        p.download-badge {
+            text-align: center;
+        }
+
+        #releasenote h3 {
+            margin: 15px;
+        }
+
+        #releasenote .details {
+            margin: 0px 30px;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+        <a href="#" class="navbar-brand">
+            <img src="./img/MNGDrawLogo.png" height="30" alt="MNGDraw" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navmenu1"
+            aria-controls="navmenu1" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navmenu1">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="#download">Download</a>
+                <a class="nav-item nav-link" href="#movie">Movie</a>
+                <a class="nav-item nav-link" href="#releasenote">ReleaseNote</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="jumbotron mt-4">
+            <h1 class="display-4">MNGDrawとは</h1>
+            <p class="lead">
+                スクリーントーンの情報を保証するドローソフトウェアのパラパラ漫画作成ツールです。<br />
+            </p>
+            <hr class="my-4" />
+            <a class="btn btn-primary btn-lg" href="#download" role="button">
+                <i class="fas fa-download"></i> 今すぐダウンロード
+            </a>
+        </div>
+
+        <div id="download" class="wrapper">
+            <h2>ダウンロード</h2>
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                    <a href="#windows" class="nav-link" role="tab" data-toggle="tab"><i class="fab fa-windows"></i> Windows</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#macos" class="nav-link" role="tab" data-toggle="tab"><i class="fab fa-apple"></i> macOS</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#ios" class="nav-link" role="tab" data-toggle="tab"><i class="fab fa-app-store-ios"></i> iOS</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#android" class="nav-link" role="tab" data-toggle="tab"><i class="fab fa-android"></i> Android</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" id="windows" class="tab-pane fade">
+                    <p>Windows上で動かすには、Windows 10 Fall Creators Update以上でなければなりません。</p>
+                    <p class="download-badge"><a href="#"><img src="./img/microsoft-store-badge.png" alt="Microsoft Storeからダウンロード"></a></p>
+                </div>
+                <div role="tabpanel" id="macos" class="tab-pane fade">
+                    <p>macOSで動かすには、macOS 10.13 High Sierra以上でなければなりません。</p>
+                    <p class="download-badge"><a href="#"><img src="./img/mac-app-store-badge.svg" alt="Mac App Storeからダウンロード"></a></p>
+                </div>
+                <div role="tabpanel" id="ios" class="tab-pane fade">
+                    <p>iOSで動かすには、iOS 12.2以上でなければなりません。</p>
+                    <p class="download-badge"><a href="#"><img src="./img/app-store-badge.svg" alt="App Storeからダウンロード"></a></p>
+                </div>
+                <div role="tabpanel" id="android" class="tab-pane fade">
+                    <p>Androidで動かすには、Android 5.0 Lollipop以上でなければなりません。</p>
+                    <p class="download-badge"><a href="#"><img src="./img/google-play-badge.png" alt="Google Play ストアからダウンロード"></a></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="movie" class="wrapper">
+            <h2>ムービー</h2>
+            <div class="youtube">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/07EPI5CzxEc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div id="releasenote" class="wrapper">
+            <h2>リリースノート</h2>
+            <h3>2020/0X/XX ver1.0.0 初期バージョン</h3>
+            <div class="details">
+                <h4 class="alert alert-success" role="alert"><i class="fas fa-check-circle"></i> 主に実装した機能</h4>
+                <ul>
+                    <li>ベジエ曲線を用いて図形を絵画する基本的な機能</li>
+                    <li>やり直し機能</li>
+                    <li>レイヤー機能</li>
+                    <li>ページ機能</li>
+                </ul>
+                <h4 class="alert alert-info" role="alert"><i class="fas fa-cog"></i> 設定の機能</h4>
+                <ul>
+                    <li>スクリーントーンのスケール(細かさ)の設定</li>
+                    <li>ベジエハンドルが大きさ0になるしきい値の設定</li>
+                    <li>未確定のパスのプレビューの設定</li>
+                </ul>
+                <h4 class="alert alert-danger" role="alert"><i class="fas fa-times-circle"></i> 未実装の機能</h4>
+                <ul>
+                    <li>作品の再生機能</li>
+                    <li>セーブ・ロード機能</li>
+                    <li>確定したパスを後から変更する機能</li>
+                </ul>
+                
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/jquery-3.4.1.slim.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/pgwbrowser.min.js"></script>
+    
+    <script>
+    $(function(){
+        $('.download-badge a').click(function() {
+            alert("現在アプリの配信の準備をしています。\nもうしばらくお待ち下さい。");
+            return false;
+        });
+
+
+        var pgwBrowser = $.pgwBrowser();
+        switch (pgwBrowser.os.group) {
+            default:
+            case "Windows":
+                $('.nav-item a[href="#windows"]').addClass("active");
+                $('#windows').addClass("active").addClass("show");
+                break;
+            case "Mac OS":
+                $('.nav-item a[href="#macos"]').addClass("active");
+                $('#macos').addClass("active").addClass("show");
+                break;
+            case "iOS":
+                $('.nav-item a[href="#ios"]').addClass("active");
+                $('#ios').addClass("active").addClass("show");
+                break;
+            case "Android":
+                $('.nav-item a[href="#android"]').addClass("active");
+                $('#android').addClass("active").addClass("show");
+                break;
+        }
+
+
+    });
+    </script>
+
+
+</body>
+
+</html>
